@@ -36,25 +36,51 @@ public class Main {
         // 3 вопрос
         Human someHuman = new Human("Акакий Акакиевич Акакьев", 32, "Moscow");
 
-        System.out.println(Arrays.toString(splitString("abccdef")));
+        System.out.println(Arrays.toString(splitString("abcdefg")));
+
+        printSplitString("abcdefg");
     }
 
     public static String[] splitString(String str){
-        char[] chars = str.toCharArray();
-        String[] strings = {"", ""};
-        int index;
-        if (chars.length % 2 != 0){
-            index = chars.length / 2 + 1;
+        if (str != null) {
+            char[] chars = str.toCharArray();
+            String[] strings = {"", ""};
+            int index;
+            if (chars.length % 2 != 0) {
+                index = chars.length / 2 + 1;
+            } else {
+                index = chars.length / 2;
+            }
+            for (int i = 0; i < index; i++) {
+                strings[0] += chars[i];
+            }
+            for (int i = index; i < chars.length; i++) {
+                strings[1] += chars[i];
+            }
+            return strings;
         } else {
-            index = chars.length / 2;
+            throw new IllegalArgumentException("Ошибка ввода строки");
         }
-        for (int i = 0; i < index; i++) {
-            strings[0] += chars[i];
-        }
-        for (int i = index; i < chars.length; i++) {
-            strings[1] += chars[i];
-        }
+    }
 
-        return strings;
+    public static void printSplitString(String str){
+        if (str != null) {
+            char[] chars = str.toCharArray();
+            int size = str.length();
+            int half;
+            if (size % 2 == 0){
+                half = size / 2;
+            } else {
+                half = size / 2 + 1;
+            }
+
+
+            char a[] = Arrays.copyOfRange(chars, 0, half);
+            char b[] = Arrays.copyOfRange(chars, half, size);
+            System.out.println("A: " + Arrays.toString(a));
+            System.out.println("B: " + Arrays.toString(b));
+        } else {
+            throw new IllegalArgumentException("Ошибка ввода строки");
+        }
     }
 }
