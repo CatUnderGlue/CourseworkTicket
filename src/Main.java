@@ -1,7 +1,8 @@
 import java.util.Arrays;
 
 public class Main {
-    public static int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7 ,8 ,9};
+    public static int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
     public static void main(String[] args) {
         // 1 вопрос
         for (int i = 1; i < 6; i++) {
@@ -9,14 +10,14 @@ public class Main {
         }
         System.out.println();
 
-        for (int number : numbers){
+        for (int number : numbers) {
             System.out.println(number);
         }
         System.out.println();
 
         int count = 1;
         while (true) {
-            if (count == 5){
+            if (count == 5) {
                 break;
             }
             System.out.println(count);
@@ -41,7 +42,7 @@ public class Main {
         printSplitString("abcdefg");
     }
 
-    public static String[] splitString(String str){
+    public static String[] splitString(String str) {
         if (str != null) {
             char[] chars = str.toCharArray();
             String[] strings = {"", ""};
@@ -63,20 +64,20 @@ public class Main {
         }
     }
 
-    public static void printSplitString(String str){
+    public static void printSplitString(String str) {
         if (str != null) {
             char[] chars = str.toCharArray();
             int size = str.length();
             int half;
-            if (size % 2 == 0){
+            if (size % 2 == 0) {
                 half = size / 2;
             } else {
                 half = size / 2 + 1;
             }
 
 
-            char a[] = Arrays.copyOfRange(chars, 0, half);
-            char b[] = Arrays.copyOfRange(chars, half, size);
+            char[] a = Arrays.copyOfRange(chars, 0, half);
+            char[] b = Arrays.copyOfRange(chars, half, size);
             System.out.println("A: " + Arrays.toString(a));
             System.out.println("B: " + Arrays.toString(b));
         } else {
